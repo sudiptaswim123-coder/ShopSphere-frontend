@@ -1,5 +1,12 @@
-export const API_URL =
-  import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+const configuredApiUrl = (
+  import.meta.env.VITE_API_URL || "http://localhost:5000"
+)
+  .trim()
+  .replace(/\/+$/, "");
+
+export const API_URL = configuredApiUrl.endsWith("/api")
+  ? configuredApiUrl
+  : `${configuredApiUrl}/api`;
 
 export async function apiRequest(path, options = {}) {
   const { headers, ...requestOptions } = options;
