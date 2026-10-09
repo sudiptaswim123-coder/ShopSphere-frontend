@@ -1,0 +1,4 @@
+export default function Modal({ open, title, onClose, children }) {
+  if (!open) return null
+  return <div role="presentation" onMouseDown={(event) => event.target === event.currentTarget && onClose?.()} style={{ position: 'fixed', inset: 0, display: 'grid', placeItems: 'center', padding: 20, background: '#20272388', zIndex: 10 }}><section role="dialog" aria-modal="true" aria-labelledby="modal-title" style={{ width: 'min(520px, 100%)', padding: 24, background: 'white' }}><button type="button" onClick={onClose} aria-label="Close dialog" style={{ float: 'right' }}>×</button><h2 id="modal-title">{title}</h2>{children}</section></div>
+}
