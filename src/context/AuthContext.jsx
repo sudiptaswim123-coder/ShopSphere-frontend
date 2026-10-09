@@ -5,10 +5,9 @@ import React, {
   useEffect,
   useState,
 } from "react";
+import { API_URL } from "../services/api";
 
 const AuthContext = createContext(null);
-
-const API_URL = "http://localhost:5000/api";
 
 const USER_KEY = "shopsphere-user";
 const TOKEN_KEY = "shopsphere-token";
